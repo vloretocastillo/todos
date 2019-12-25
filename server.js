@@ -3,14 +3,19 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const db = require('./config/keys.js').mongoURI
 const port = process.env.PORT || 5000
+const itemsRouter = require('./routes/api/items');
+const app = express()
 
+// Applying Middleware
+app.use(bodyParser.json())
+app.use('/api/items', itemsRouter)
+
+
+// Connecting to Database
 mongoose
-    .connect(db)
+    .connect(db, { useNewUrlParser: true, dbName: "todos" })
     .then(()=> console.log('connected to server'))
     .catch(err => console.log(err))
 
-const app = express()
-
-app.use(bodyParser.json())
-
+// Initializing server
 app.listen(port, ()=> console.log('server connected on port ' + port))
