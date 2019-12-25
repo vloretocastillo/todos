@@ -33,7 +33,6 @@ const retrieveOneItem = (req, res) => {
 
 
 const deleteOneItem =  (req,res) => {
-    // console.log('dete')
     itemModel.findByIdAndRemove(req.params.id)
         .then(item => { res.send(item) })
         .catch(err => {
