@@ -1,3 +1,4 @@
+// Declaring and Initializing Constants
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
@@ -6,7 +7,7 @@ const port = process.env.PORT || 5000
 const itemsRouter = require('./routes/api/items');
 const app = express()
 
-// Applying Middleware
+// Applying Middlewares
 app.use(bodyParser.json())
 app.use('/api/items', itemsRouter)
 
