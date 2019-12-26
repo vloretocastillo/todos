@@ -31,6 +31,12 @@ const retrieveOneItem = (req, res) => {
         })
 }
 
+const updateOneItem = (req, res) => {
+    itemModel.findOneAndUpdate({_id:req.params.id}, req.body, (err, item) => {
+        res.send(item)
+    })
+}
+
 
 const deleteOneItem =  (req,res) => {
     itemModel.findByIdAndRemove(req.params.id)
@@ -48,6 +54,7 @@ const deleteOneItem =  (req,res) => {
 itemsRouter.get('/', (req,res) => retrieveAllItems(req,res))
 itemsRouter.post('/', (req,res) => createOneItem(req,res))
 itemsRouter.get('/:id', (req,res) => retrieveOneItem(req,res))
+itemsRouter.put('/:id', (req,res) => updateOneItem(req,res))
 itemsRouter.delete('/:id', (req,res) => deleteOneItem(req,res))
 
 
