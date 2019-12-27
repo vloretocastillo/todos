@@ -8,17 +8,13 @@ class App extends React.Component {
     state = {
         todos : []
     }
+
     componentDidMount() {
         fetch("http://localhost:5000/api/items", { method: 'GET' })
             .then(res =>  res.json() )
             .then(todos => this.setState({ todos }) )
             .catch(err => console.error(err)) 
     }
-
-    // componentDidUpdate() {
-    //     console.log('updated: ', this.state.todos)
-    // }
-
 
     generateList = (todos) => {
         return todos.map(el => <li key={el._id}>{el.name}</li> )
@@ -30,21 +26,16 @@ class App extends React.Component {
         
         
         return (
-          <BrowserRouter>
-              {/* <div className="App">
-                <Switch>
-                  <Route exact path='/' component={Landing} />
-                </Switch>
-              </div> */}
-              <div className='main'>
+          
+              
+            <div className='main'>
                 <div className='todos'>
-                    MY APP
                     <ul>
                         { list }
                     </ul>
                 </div>
-              </div>
-          </BrowserRouter>
+            </div>
+          
         )
       }
 }
