@@ -5,7 +5,6 @@ const retrieveAllItems = (req, res) => {
     
     itemModel.find({})
     .then(files => {
-        // console.log('files', files)
         res.send(files)
     })
     .catch(err => console.log(err));
@@ -13,7 +12,6 @@ const retrieveAllItems = (req, res) => {
 
 
 const createOneItem = (req,res) => {
-    // console.log('ADD: ', req.body)
     const newItem = new itemModel({
         name: req.body.name,
     })

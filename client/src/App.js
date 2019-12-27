@@ -22,7 +22,6 @@ class App extends React.Component {
     addItem = () => {
         let name = prompt("Please enter your todo", "Buy milk...");
         if (name == null) return
-        // console.log('name: ', name)
         const item = { name }
         fetch("http://localhost:5000/api/items", { 
             method: 'POST',
@@ -37,7 +36,6 @@ class App extends React.Component {
     }
 
     deleteItem = (id) => {
-        // console.log('TODELETE', id)
         fetch(`http://localhost:5000/api/items/${id}`, { 
             method: 'DELETE',
             headers: {

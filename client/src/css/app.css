@@ -9,7 +9,6 @@ ul {
 }
 
 .main {
-    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -18,13 +17,11 @@ ul {
 }
 
 .todos {
-    /* border: 1px solid blue; */
     width: 70vw;
     padding: 0 1rem;
 }
 
 .todos ul{
-    /* border: 1px solid red; */
     margin: 0;
 }
 
@@ -47,14 +44,12 @@ ul {
 }
 
 .add {
-    /* display: block; */
     width: 40%;
     margin: 1rem 0;
     padding: 0.5rem;
     background-color: rgb(62, 161, 161);
     border: none;
     color: white;
-    /* transform: translateX(50%); */
     
 }
 
@@ -63,8 +58,6 @@ ul {
 }
 
 .li {
-    /* display: flex;
-    justify-content: space-evenly; */
     position: relative;
 }
 
