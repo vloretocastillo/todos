@@ -27,6 +27,10 @@ class App extends React.Component {
         this.props.addItem(item)
     }
 
+    handleMouseDown = (e) => {
+        console.log(e.target)
+    }
+
 
     render () {
         const { todos } = this.props
@@ -42,7 +46,7 @@ class App extends React.Component {
                         { list }
                     </ul>
                     <div className='add-wrapper'>
-                        <button className='add' onClick={ () => this.handleClick() }>Add</button>
+                        <button className='add' onClick={ () => this.handleClick()  } onMouseDown={ (e) => this.handleMouseDown(e) }>Add</button>
                     </div>
                 </div>
                 

@@ -4,6 +4,14 @@
     background-color: rgb(223, 223, 213);
 }
 
+*:focus {
+    outline: none !important;
+}
+/* 
+.add:focus {
+    outline: none;
+} */
+
 ul {
     list-style: none;
 }
@@ -50,11 +58,17 @@ ul {
     background-color: rgb(62, 161, 161);
     border: none;
     color: white;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
-.add:hover {
+/* .add:hover {
     background-color: rgb(43, 209, 209);
+} */
+
+.add:active{
+    background-color: rgb(43, 209, 209);
+    color: black
 }
 
 .li {
