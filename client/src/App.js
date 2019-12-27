@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     generateList = (todos) => {
-        return todos.map(el => <Todo key={el._id} id={el._id} name={el.name}/> )
+        return todos.map(el => <Todo key={el._id} id={el._id} name={el.name} deleteItem={this.deleteItem}/> )
     }
 
     addItem = () => {
@@ -33,6 +33,18 @@ class App extends React.Component {
         })
         .then(res =>  res.json() )
         .then(todo => this.setState( { todos : [...this.state.todos, todo] } ))
+        .catch(err => console.error(err)) 
+    }
+
+    deleteItem = (id) => {
+        // console.log('TODELETE', id)
+        fetch(`http://localhost:5000/api/items/${id}`, { 
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(() => this.setState( { todos : this.state.todos.filter(el => el._id !== id) } ))
         .catch(err => console.error(err)) 
     }
 

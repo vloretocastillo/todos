@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: rgb(223, 223, 213);
 }
 
 ul {
@@ -8,7 +9,7 @@ ul {
 }
 
 .main {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,7 +18,7 @@ ul {
 }
 
 .todos {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 70vw;
     padding: 0 1rem;
 }
@@ -28,9 +29,15 @@ ul {
 }
 
 .todos ul li{
-    border: 1px solid red;
     margin: 1rem 0;
-    padding: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .3s ease-in-out;
+    background-color: white;
+}
+.todos ul li:hover{
+   transform: scale(1.05);
+
 }
 
 .add-wrapper {
@@ -53,4 +60,19 @@ ul {
 
 .add:hover {
     background-color: rgb(43, 209, 209);
+}
+
+.li {
+    /* display: flex;
+    justify-content: space-evenly; */
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    right: 1rem;
+    padding: 0 0.5rem;
+    background-color: rgb(161, 62, 78);
+    border: none;
+    color: white;
 }
