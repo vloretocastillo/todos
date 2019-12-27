@@ -9,23 +9,26 @@ class App extends React.Component {
         todos : []
     }
     componentDidMount() {
-        console.log('DID MOUNT')
-        const fetchPath = "http://localhost:5000/api/items"
-        fetch(fetchPath, {
-            method: 'GET',
-            // mode: 'no-cors',
-            // headers: {
-            //     mode: 'no-cors',
-            // }
-        })
-        .then(res =>  res.json() )
-        .then(data => console.log(data))
-        .catch(err => console.error(err)) 
-    
-        
+        fetch("http://localhost:5000/api/items", { method: 'GET' })
+            .then(res =>  res.json() )
+            .then(todos => this.setState({ todos }) )
+            .catch(err => console.error(err)) 
+    }
+
+    // componentDidUpdate() {
+    //     console.log('updated: ', this.state.todos)
+    // }
+
+
+    generateList = (todos) => {
+        return todos.map(el => <li key={el._id}>{el.name}</li> )
     }
 
     render () {
+        const { todos } = this.state
+        let list = todos.length > 0 ? this.generateList(todos) : 'No todos available'
+        
+        
         return (
           <BrowserRouter>
               {/* <div className="App">
@@ -35,7 +38,10 @@ class App extends React.Component {
               </div> */}
               <div className='main'>
                 <div className='todos'>
-                    HELLO IM APP
+                    MY APP
+                    <ul>
+                        { list }
+                    </ul>
                 </div>
               </div>
           </BrowserRouter>

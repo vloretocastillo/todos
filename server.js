@@ -11,9 +11,10 @@ const app = express()
 
 // Applying Middlewares
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/items', itemsRouter)
-app.use(cors())
+
 
 // Connecting to Database
 mongoose
