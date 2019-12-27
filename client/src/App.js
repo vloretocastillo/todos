@@ -19,15 +19,20 @@ class App extends React.Component {
         return todos.map(el => <Todo key={el._id} id={el._id} name={el.name}/> )
     }
 
-    addItem = (item) => {
+    addItem = () => {
+        let name = prompt("Please enter your todo", "Buy milk...");
+        if (name == null) return
+        // console.log('name: ', name)
+        const item = { name }
         fetch("http://localhost:5000/api/items", { 
             method: 'POST',
-            body: {
-                name : item.name
-            }
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item)
         })
         .then(res =>  res.json() )
-        .then(todos => this.setState({ todos }) )
+        .then(todo => this.setState( { todos : [...this.state.todos, todo] } ))
         .catch(err => console.error(err)) 
     }
 
@@ -45,7 +50,7 @@ class App extends React.Component {
                         { list }
                     </ul>
                     <div className='add-wrapper'>
-                        <button className='add' onClick={}>Add</button>
+                        <button className='add' onClick={ () => this.addItem() }>Add</button>
                     </div>
                 </div>
                 
