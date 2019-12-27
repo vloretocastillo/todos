@@ -1,11 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
 .main {
     border: 1px solid red;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .todos {
+    border: 1px solid blue;
+    width: 70vw;
+    padding: 0 1rem;
+}
+
+.todos ul{
+    /* border: 1px solid red; */
+    margin: 0;
+}
+
+.todos ul li{
     border: 1px solid red;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.add-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    /* display: block; */
+    width: 40%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: rgb(62, 161, 161);
+    border: none;
+    color: white;
+    /* transform: translateX(50%); */
+    
+}
+
+.add:hover {
+    background-color: rgb(43, 209, 209);
 }

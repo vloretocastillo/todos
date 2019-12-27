@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom'
 import './css/app.css';
-
+import Todo from './components/todo'
 
 
 class App extends React.Component {
@@ -17,7 +16,19 @@ class App extends React.Component {
     }
 
     generateList = (todos) => {
-        return todos.map(el => <li key={el._id}>{el.name}</li> )
+        return todos.map(el => <Todo key={el._id} id={el._id} name={el.name}/> )
+    }
+
+    addItem = (item) => {
+        fetch("http://localhost:5000/api/items", { 
+            method: 'POST',
+            body: {
+                name : item.name
+            }
+        })
+        .then(res =>  res.json() )
+        .then(todos => this.setState({ todos }) )
+        .catch(err => console.error(err)) 
     }
 
     render () {
@@ -33,7 +44,11 @@ class App extends React.Component {
                     <ul>
                         { list }
                     </ul>
+                    <div className='add-wrapper'>
+                        <button className='add' onClick={}>Add</button>
+                    </div>
                 </div>
+                
             </div>
           
         )
